@@ -85,7 +85,9 @@ a {
 
 .eyebrow,
 .intro,
-.area-item p {
+.area-item p,
+.company-copy p,
+.product-line p {
   color: var(--muted);
 }
 
@@ -176,9 +178,115 @@ h1 {
   line-height: 1.62;
 }
 
+.company-section,
+.products-section {
+  padding: clamp(38px, 6vw, 84px) clamp(20px, 5vw, 76px);
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.products-section {
+  background: var(--paper-soft);
+}
+
+.section-label {
+  margin-bottom: clamp(26px, 4vw, 44px);
+  color: var(--muted);
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+  gap: clamp(34px, 7vw, 108px);
+  align-items: start;
+}
+
+.company-copy h2,
+.product-line h2 {
+  max-width: 840px;
+  margin-bottom: 22px;
+  font-size: clamp(36px, 5.6vw, 74px);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+.company-copy p,
+.product-line p {
+  max-width: 700px;
+  margin-bottom: 18px;
+  font-size: clamp(15px, 1.45vw, 18px);
+  line-height: 1.62;
+}
+
+.company-copy a,
+.product-line a {
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-decoration-thickness: 0.2em;
+  text-underline-offset: 0.18em;
+}
+
+.company-facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.company-facts div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.company-facts dt {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.company-facts dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.product-line {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr) auto;
+  gap: clamp(22px, 4vw, 54px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(28px, 5vw, 54px) 0;
+}
+
+.product-line h2,
+.product-line p {
+  margin-bottom: 0;
+}
+
+.product-line a {
+  white-space: nowrap;
+  font-size: 13px;
+}
+
 .footer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 24px;
   padding: 28px clamp(20px, 5vw, 76px);
@@ -193,6 +301,13 @@ h1 {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
 }
 
 .footer a {
@@ -214,6 +329,24 @@ h1 {
   .business-areas {
     padding-inline: 18px;
   }
+
+  .company-grid,
+  .product-line {
+    grid-template-columns: 1fr;
+  }
+
+  .product-line {
+    align-items: start;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 560px) {
@@ -228,5 +361,10 @@ h1 {
   .area-item {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .company-section,
+  .products-section {
+    padding-inline: 18px;
   }
 }
